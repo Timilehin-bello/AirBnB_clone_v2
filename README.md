@@ -4,209 +4,139 @@ This repository contains the initial stage of a student project to build a clone
 
 ---
 
-## Table of Contents
+<center><h3>Repository Contents by Project Task</h3> </center>
 
-- [Description](#description)
-- [File Structure](#file-structure)
-- [Requirements](#requirements)
-- [Quick Start](#quick-start)
-- [Usage](#usage)
-- [Bugs](#bugs)
-- [Authors](#authors)
+| Tasks | Files | Description |
+| ----- | ----- | ------ |
+| 0: Authors/README File | [AUTHORS](https://github.com/justinmajetich/AirBnB_clone/blob/dev/AUTHORS) | Project authors |
+| 1: Pep8 | N/A | All code is pep8 compliant|
+| 2: Unit Testing | [/tests](https://github.com/justinmajetich/AirBnB_clone/tree/dev/tests) | All class-defining modules are unittested |
+| 3. Make BaseModel | [/models/base_model.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/base_model.py) | Defines a parent class to be inherited by all model classes|
+| 4. Update BaseModel w/ kwargs | [/models/base_model.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/base_model.py) | Add functionality to recreate an instance of a class from a dictionary representation|
+| 5. Create FileStorage class | [/models/engine/file_storage.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/engine/file_storage.py) [/models/_ _init_ _.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/__init__.py) [/models/base_model.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/base_model.py) | Defines a class to manage persistent file storage system|
+| 6. Console 0.0.1 | [console.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/console.py) | Add basic functionality to console program, allowing it to quit, handle empty lines and ^D |
+| 7. Console 0.1 | [console.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/console.py) | Update the console with methods allowing the user to create, destroy, show, and update stored data |
+| 8. Create User class | [console.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/console.py) [/models/engine/file_storage.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/engine/file_storage.py) [/models/user.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/user.py) | Dynamically implements a user class |
+| 9. More Classes | [/models/user.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/user.py) [/models/place.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/place.py) [/models/city.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/city.py) [/models/amenity.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/amenity.py) [/models/state.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/state.py) [/models/review.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/review.py) | Dynamically implements more classes |
+| 10. Console 1.0 | [console.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/console.py) [/models/engine/file_storage.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/engine/file_storage.py) | Update the console and file storage system to work dynamically with all  classes update file storage |
+<br>
+<br>
+<center> <h2>General Use</h2> </center>
 
-## Description
+1. First clone this repository.
 
-**The Console**
+3. Once the repository is cloned locate the "console.py" file and run it as follows:
+```
+/AirBnB_clone$ ./console.py
+```
+4. When this command is run the following prompt should appear:
+```
+(hbnb)
+```
+5. This prompt designates you are in the "HBnB" console. There are a variety of commands available within the console program.
 
-Will help us to:
+##### Commands
+    * create - Creates an instance based on given class
 
-1. Create your data model
-2. Manage (create, update, destroy, etc) objects via a console / command interpreter
-3. Store and persist objects to a file (JSON file)
+    * destroy - Destroys an object based on class and UUID
 
-In this case, we want to be able to manage the objects of our project:
+    * show - Shows an object based on class and UUID
 
-- Create a new object (ex: a new User or a new Place)
-- Retrieve an object from a file, a database etc…
-- Do operations on objects (count, compute stats, etc…)
-- Update attributes of an object
-- Destroy an object
+    * all - Shows all objects the program has access to, or all objects of a given class
 
-## File Structure
+    * update - Updates existing attributes an object based on class name and UUID
 
-These are the files with the custom funtions and system calls, each one contains a brief description:
+    * quit - Exits the program (EOF will as well)
 
-| **_File_**                                                      | **_Description_**            |
-| --------------------------------------------------------------- | ---------------------------- |
-| [`console.py`](./console.py)                                    | Console file                 |
-| [`models`](./models)                                            | Contains all the classes     |
-| [`models/__init__`](./models/__init__.py)                       | Connects with filestorage    |
-| [`models/base_model`](./models/base_model.py)                   | Base Model class             |
-| [`models/user`](./models/user.py)                               | User class                   |
-| [`models/state`](./models/state.py)                             | State class                  |
-| [`models/city`](./models/city.py)                               | City class                   |
-| [`models/place`](./models/place.py)                             | Place class                  |
-| [`models/amenity`](./models/amenity.py)                         | Amenity class                |
-| [`models/review`](./models/review.py)                           | Review class                 |
-| [`models/engine`](./models/engine)                              | Contains File Storage engine |
-| [`models/engine/file_storage`](./models/engine/file_storage.py) | File Storage module          |
-| [`models/engine/db_storage`](./models/engine/db_storage.py)     | MySQL Storage module         |
-| [`tests`](./tests)                                              | Prompt and getline file      |
-| [`AUTHORS`](./AUTHORS)                                          | AUTHORS file                 |
-| [`README.md`](./README.md)                                      | README.md file               |
 
-## Requirements
+##### Alternative Syntax
+Users are able to issue a number of console command using an alternative syntax:
 
-- All files will be interpreted/compiled on Ubuntu 14.04 LTS using python3
-- Code should use the PEP 8 style (version 1.7 or more)
-- Your code should use the PEP 8 style (version 1.7 or more)
+	Usage: <class_name>.<command>([<id>[name_arg value_arg]|[kwargs]])
+Advanced syntax is implemented for the following commands: 
 
-## Usage
+    * all - Shows all objects the program has access to, or all objects of a given class
 
-### Interactive Mode JSON file engine storage:
+	* count - Return number of object instances by class
 
-### Supported classes:
+    * show - Shows an object based on class and UUID
 
-- BaseModel
-- User
-- State
-- City
-- Amenity
-- Place
-- Review
+	* destroy - Destroys an object based on class and UUID
 
-### Commands:
+    * update - Updates existing attributes an object based on class name and UUID
 
-- create - create an object
-- show - show an object (based on id)
-- destroy - destroy an object
-- all - show all objects, of one type or all types
-- quit/EOF - quit the console
-- help - see descriptions of commands
-
-To start, navigate to the project folder and enter `./console.py` in the shell.
-
-#### Create
-
-`create <class name>`
-Ex:
-`create BaseModel`
-
-#### Show
-
-`show <class name> <object id>`
-Ex:
-`show User my_id`
-
-#### Destroy
-
-`destroy <class name> <object id>`
-Ex:
-`destroy Place my_place_id`
-
-#### All
-
-`all` or `all <class name>`
-Ex:
-`all` or `all State`
-
+<br>
 <br>
 <center> <h2>Examples</h2> </center>
 <h3>Primary Command Syntax</h3>
 
 ###### Example 0: Create an object
-
 Usage: create <class_name>
-
 ```
 (hbnb) create BaseModel
 ```
-
 ```
 (hbnb) create BaseModel
 3aa5babc-efb6-4041-bfe9-3cc9727588f8
-(hbnb)
+(hbnb)                   
 ```
-
 ###### Example 1: Show an object
-
-Usage: show <class_name> <\_id>
+Usage: show <class_name> <_id>
 
 ```
 (hbnb) show BaseModel 3aa5babc-efb6-4041-bfe9-3cc9727588f8
-[BaseModel] (3aa5babc-efb6-4041-bfe9-3cc9727588f8) {'id': '3aa5babc-efb6-4041-bfe9-3cc9727588f8', 'created_at': datetime.datetime(2020, 2, 18, 14, 21, 12, 96959),
+[BaseModel] (3aa5babc-efb6-4041-bfe9-3cc9727588f8) {'id': '3aa5babc-efb6-4041-bfe9-3cc9727588f8', 'created_at': datetime.datetime(2020, 2, 18, 14, 21, 12, 96959), 
 'updated_at': datetime.datetime(2020, 2, 18, 14, 21, 12, 96971)}
-(hbnb)
+(hbnb)  
 ```
-
 ###### Example 2: Destroy an object
-
-Usage: destroy <class_name> <\_id>
-
+Usage: destroy <class_name> <_id>
 ```
 (hbnb) destroy BaseModel 3aa5babc-efb6-4041-bfe9-3cc9727588f8
 (hbnb) show BaseModel 3aa5babc-efb6-4041-bfe9-3cc9727588f8
 ** no instance found **
-(hbnb)
+(hbnb)   
 ```
-
 ###### Example 3: Update an object
-
-Usage: update <class_name> <\_id>
-
+Usage: update <class_name> <_id>
 ```
 (hbnb) update BaseModel b405fc64-9724-498f-b405-e4071c3d857f first_name "person"
 (hbnb) show BaseModel b405fc64-9724-498f-b405-e4071c3d857f
-[BaseModel] (b405fc64-9724-498f-b405-e4071c3d857f) {'id': 'b405fc64-9724-498f-b405-e4071c3d857f', 'created_at': datetime.datetime(2020, 2, 18, 14, 33, 45, 729889),
+[BaseModel] (b405fc64-9724-498f-b405-e4071c3d857f) {'id': 'b405fc64-9724-498f-b405-e4071c3d857f', 'created_at': datetime.datetime(2020, 2, 18, 14, 33, 45, 729889), 
 'updated_at': datetime.datetime(2020, 2, 18, 14, 33, 45, 729907), 'first_name': 'person'}
 (hbnb)
 ```
-
 <h3>Alternative Syntax</h3>
 
 ###### Example 0: Show all User objects
-
 Usage: <class_name>.all()
-
 ```
 (hbnb) User.all()
 ["[User] (99f45908-1d17-46d1-9dd2-b7571128115b) {'updated_at': datetime.datetime(2020, 2, 19, 21, 47, 34, 92071), 'id': '99f45908-1d17-46d1-9dd2-b7571128115b', 'created_at': datetime.datetime(2020, 2, 19, 21, 47, 34, 92056)}", "[User] (98bea5de-9cb0-4d78-8a9d-c4de03521c30) {'updated_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134362), 'id': '98bea5de-9cb0-4d78-8a9d-c4de03521c30', 'created_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134343)}"]
 ```
 
 ###### Example 1: Destroy a User
-
-Usage: <class_name>.destroy(<\_id>)
-
+Usage: <class_name>.destroy(<_id>)
 ```
 (hbnb) User.destroy("99f45908-1d17-46d1-9dd2-b7571128115b")
 (hbnb)
 (hbnb) User.all()
 (hbnb) ["[User] (98bea5de-9cb0-4d78-8a9d-c4de03521c30) {'updated_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134362), 'id': '98bea5de-9cb0-4d78-8a9d-c4de03521c30', 'created_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134343)}"]
 ```
-
 ###### Example 2: Update User (by attribute)
-
-Usage: <class_name>.update(<\_id>, <attribute_name>, <attribute_value>)
-
+Usage: <class_name>.update(<_id>, <attribute_name>, <attribute_value>)
 ```
 (hbnb) User.update("98bea5de-9cb0-4d78-8a9d-c4de03521c30", name "Todd the Toad")
 (hbnb)
 (hbnb) User.all()
 (hbnb) ["[User] (98bea5de-9cb0-4d78-8a9d-c4de03521c30) {'updated_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134362), 'id': '98bea5de-9cb0-4d78-8a9d-c4de03521c30', 'name': 'Todd the Toad', 'created_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134343)}"]
 ```
-
 ###### Example 3: Update User (by dictionary)
-
-Usage: <class_name>.update(<\_id>, <dictionary>)
-
+Usage: <class_name>.update(<_id>, <dictionary>)
 ```
 (hbnb) User.update("98bea5de-9cb0-4d78-8a9d-c4de03521c30", {'name': 'Fred the Frog', 'age': 9})
 (hbnb)
 (hbnb) User.all()
 (hbnb) ["[User] (98bea5de-9cb0-4d78-8a9d-c4de03521c30) {'updated_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134362), 'name': 'Fred the Frog', 'age': 9, 'id': '98bea5de-9cb0-4d78-8a9d-c4de03521c30', 'created_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134343)}"]
 ```
-
 <br>
-	
-## Authors
-* **Oluwatimilehin Bello** - [Timilehin-bello](https://github.com/Timilehin-bello)
